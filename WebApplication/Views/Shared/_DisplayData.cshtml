@@ -1,7 +1,13 @@
 ﻿@model IEnumerable<WebApplication.Models.Table_1>
 
+<br />
+@using (Html.BeginForm("Index", "Default", FormMethod.Get))
+            {
+    @Html.TextBox("search")
+                <input type="submit" value="Filter by Name" />
+            }
 
-<table class="table">
+<table id="table" class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Naziv)

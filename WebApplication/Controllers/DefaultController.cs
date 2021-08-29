@@ -10,11 +10,17 @@ namespace WebApplication.Controllers
     public class DefaultController : Controller
     {
         // GET: Default
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             SampleDatabaseEntities Data = new SampleDatabaseEntities();
-            List<Table_1> properties = Data.Table_1.ToList();
-            return View(properties);
+            var properts = from prop in Data.Table_1 select prop;
+            if (!String.IsNullOrEmpty(search))
+            {
+                properts = properts.Where(prop => prop.Naziv.Contains(search));
+            }
+            // List < Table_1 > properties = Data.Table_1.ToList();
+            // return View(properties);
+            return View(properts.ToList());
         }
         public ActionResult Index1()
         {
