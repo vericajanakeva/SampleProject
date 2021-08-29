@@ -16,5 +16,11 @@ namespace WebApplication.Controllers
             List<Table_1> properties = Data.Table_1.ToList();
             return View(properties);
         }
+        public ActionResult Index1()
+        {
+            SampleDatabaseEntities Data = new SampleDatabaseEntities();
+            List<Table_1> properties1 = Data.Table_1.ToList();
+            return PartialView("_DisplayData", properties1);
+        }
     }
 }

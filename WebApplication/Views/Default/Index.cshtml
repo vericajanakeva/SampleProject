@@ -17,3 +17,25 @@
 @Html.Partial("_DisplayData")
 
 
+<input type="button" class="form-control btn-success" id="loadData" value="Load Data with Jquery"/>
+<div id="load">
+
+</div>
+
+@section scripts
+
+{
+	<script>
+		$(document).ready(function () {
+			$("#loadData").click(function () {
+
+				$("#load").load("/Default/Index1")
+
+			});
+		});
+
+	</script>	
+	
+}
+
+
